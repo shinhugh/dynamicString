@@ -2,6 +2,7 @@
  * Refer to dynamicString.h for descriptions.
  */
 
+#include <stdlib.h>
 #include <string.h>
 #include "dynamicString.h"
 
@@ -14,7 +15,7 @@ unsigned char DYSTR_ALLOC_ERROR;
 
 // ------------------------------------------------------------
 
-const char * dyStr_getStr(dynamicStr *str) {
+const char * dyStr_getStr(dynamicString *str) {
 
   DYSTR_ALLOC_ERROR = 0;
 
@@ -66,6 +67,7 @@ void dyStr_appendStr(dynamicString *str, const char *newStr) {
   unsigned int i;
   unsigned char newStrLength;
   char *transferPtr;
+  unsigned int newSize;
 
   DYSTR_ALLOC_ERROR = 0;
 
@@ -106,7 +108,7 @@ unsigned int count) {
   DYSTR_ALLOC_ERROR = 0;
 
   if(startIndex + count >= str->length) {
-    if(startIndex < length) {
+    if(startIndex < str->length) {
       str->string[startIndex] = 0;
       str->length = startIndex;
     }

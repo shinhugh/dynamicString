@@ -31,7 +31,7 @@ typedef struct dynamicString {
  * String is read-only; make copy for unrestricted use.
  * Return: Address of first char of string
  */
-const char * dyStr_getStr(dynamicStr *str);
+const char * dyStr_getStr(dynamicString *str);
 
 /*
  * Replace the string entirely.
