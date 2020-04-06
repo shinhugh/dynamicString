@@ -27,7 +27,6 @@ const char * dyStr_getStr(dynamicString *str) {
 
 void dyStr_setStr(dynamicString *str, const char *newStr) {
 
-  unsigned int i;
   unsigned char newStrLength;
   char *transferPtr;
   unsigned int newSize;
@@ -64,7 +63,6 @@ void dyStr_setStr(dynamicString *str, const char *newStr) {
 
 void dyStr_appendStr(dynamicString *str, const char *newStr) {
 
-  unsigned int i;
   unsigned char newStrLength;
   char *transferPtr;
   unsigned int newSize;
@@ -91,7 +89,7 @@ void dyStr_appendStr(dynamicString *str, const char *newStr) {
   }
 
   memcpy(str->string + str->length, newStr, newStrLength);
-  str->string[str->length + i] = 0;
+  str->string[str->length + newStrLength] = 0;
 
   str->length += newStrLength;
 
@@ -121,6 +119,14 @@ unsigned int count) {
     str->string[startIndex + transferCount] = 0;
     str->length -= count;
   }
+
+}
+
+// ------------------------------------------------------------
+
+unsigned int dyStr_getLength(dynamicString *str) {
+
+  return str->length;
 
 }
 

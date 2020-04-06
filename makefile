@@ -18,10 +18,13 @@ all: libdynamicString.a
 # Make static library dynamicString
 libdynamicString.a: $(OBJ)
 	ar rcs $@ $^
-	rm -f $^
+
+# Make test program
+test: test.c libdynamicString.a $(DEPS)
+	$(CC) -o $@ $< $(CFLAGS) -L . -l dynamicString
 
 .PHONY: clean
 
 # Remove all but source code
 clean:
-	rm -f $(OBJ) $(LIB)
+	rm -f $(OBJ) $(LIB) test test.o

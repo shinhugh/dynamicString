@@ -54,6 +54,12 @@ void dyStr_removePart(dynamicString *str, unsigned int startIndex,
 unsigned int count);
 
 /*
+ * Get length.
+ * Return: Length of string
+ */
+unsigned int dyStr_getLength(dynamicString *str);
+
+/*
  * Reallocate memory so that there is no unused memory for the string.
  * Make a tight fit.
  * Not wise to call if chars will be added in the future, as it will have to
