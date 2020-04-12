@@ -1,7 +1,7 @@
 # Compiler
 CC = gcc
 # Compiler flags
-CFLAGS = -I .
+CFLAGS = -g -Wall -I .
 # Global dependencies
 DEPS = dynamicString.h
 # Object files to make
